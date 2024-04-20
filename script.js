@@ -38,8 +38,15 @@ async function getStudents() {
     });
 }
 
-async function editStudent(id) {
+async function editStudent(id, newData) {
     // Implement edit functionality
+    await fetch(`/editStudent/${id}`, {
+        method: 'PUT',  // or 'PATCH' depending on your API
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newData)  // Assuming newData is an object containing updated fields
+    });
 }
 
 async function deleteStudent(id) {
